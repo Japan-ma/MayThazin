@@ -1,0 +1,334 @@
+/* Base Reset & Fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #060214;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fireworks Canvas Layer */
+#fireworksCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Content တွေရဲ့ အောက်၊ Background ရဲ့အပေါ် */
+    pointer-events: none; /* စာသားတွေ ခလုတ်တွေကို နှိပ်လို့ရအောင် လုပ်ခြင်း */
+}
+
+/* Cosmic Background Stars Generator */
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px #fff; }
+}
+
+/* Page Control */
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3; /* Canvas ထက် ပိုမြင့်ရမည် */
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    padding: 20px;
+}
+
+.page.active {
+    display: flex;
+    opacity: 1;
+}
+
+.content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Neon Text Glows */
+.neon-pink {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 0 0 7px #fff, 0 0 15px #ff007f, 0 0 30px #ff007f, 0 0 50px #ff007f;
+    margin-bottom: 10px;
+}
+
+.neon-blue {
+    font-size: 2.8rem;
+    color: #fff;
+    text-shadow: 0 0 7px #fff, 0 0 15px #00d2ff, 0 0 30px #00d2ff, 0 0 50px #00d2ff;
+    margin-bottom: 15px;
+}
+
+.neon-icon-pink {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px #ff007f;
+    animation: float 3s infinite ease-in-out;
+}
+
+/* Sub-typography */
+.sub-title {
+    font-size: 1.5rem;
+    color: #ff007f;
+    text-shadow: 0 0 5px rgba(255, 0, 127, 0.5);
+    margin-bottom: 20px;
+}
+
+.quote-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Neon Buttons */
+button {
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+}
+
+.neon-btn-pink, .neon-btn-blue {
+    background: transparent;
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.neon-btn-pink {
+    border: 2px solid #ff007f;
+    color: #fff;
+    box-shadow: 0 0 15px #ff007f, inset 0 0 5px #ff007f;
+}
+
+.neon-btn-pink:hover {
+    background: #ff007f;
+    box-shadow: 0 0 25px #ff007f;
+}
+
+.neon-btn-blue {
+    border: 2px solid #00d2ff;
+    color: #fff;
+    box-shadow: 0 0 15px #00d2ff, inset 0 0 5px #00d2ff;
+}
+
+.neon-btn-blue:hover {
+    background: #00d2ff;
+    box-shadow: 0 0 25px #00d2ff;
+}
+
+.small-btn {
+    padding: 8px 25px;
+    font-size: 0.95rem;
+    margin-top: 15px;
+}
+
+/* Page 2: Photo Gallery Slider */
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+    gap: 15px;
+}
+
+.slider-container {
+    display: flex;
+    gap: 20px;
+    height: 250px;
+    align-items: center;
+}
+
+.slide-card {
+    width: 140px;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #00d2ff;
+    box-shadow: 0 0 10px #00d2ff;
+    opacity: 0.5;
+    transform: scale(0.85);
+    transition: all 0.4s ease;
+}
+
+.slide-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-card.active-slide {
+    width: 180px;
+    height: 240px;
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 25px #00d2ff;
+}
+
+.nav-arrow {
+    background: transparent;
+    border: 2px solid #ff007f;
+    color: #ff007f;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 8px #ff007f;
+}
+
+/* Page 3: Letter Layout */
+.letter-container {
+    background: rgba(10, 4, 32, 0.75);
+    border: 2px solid #ff007f;
+    box-shadow: 0 0 20px #ff007f;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: left;
+    max-width: 550px;
+    margin: 0 auto 15px auto;
+}
+
+.letter-dear {
+    font-weight: 600;
+    color: #ff007f;
+    margin-bottom: 10px;
+}
+
+.letter-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.letter-footer {
+    text-align: right;
+    font-style: italic;
+    color: #00d2ff;
+}
+
+/* Page 4: Wishes & Countdown */
+.wishes-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.wishes-box {
+    border: 2px solid #ff007f;
+    box-shadow: 0 0 15px #ff007f;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+}
+
+.wishes-box h3 { color: #00d2ff; margin-bottom: 10px;}
+
+.wishes-box ul { list-style: none; }
+
+.wishes-box ul li {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.wishes-box ul li i { color: #ff007f; margin-right: 8px;}
+
+.neon-cake {
+    font-size: 5rem;
+    text-shadow: 0 0 20px #ff007f;
+    animation: float 2.5s infinite ease-in-out;
+}
+
+.countdown-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #00d2ff;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.timer-display {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.time-segment span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff007f;
+    text-shadow: 0 0 10px #ff007f;
+}
+
+/* Page 5: Giant Heart Layout */
+.giant-heart {
+    font-size: 6rem;
+    color: #ff007f;
+    text-shadow: 0 0 30px #ff007f;
+    animation: beat 1.2s infinite ease-in-out;
+    margin: 20px 0;
+}
+
+/* Music Control Fix */
+.music-trigger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #00d2ff;
+    background: transparent;
+    color: #00d2ff;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00d2ff;
+    z-index: 100;
+}
+
+/* Animations Logic */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
