@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, May Thazin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="stars-container" id="starsBox"></div>
+
+    <button id="music-btn" class="music-trigger">
+        <i class="fas fa-music"></i>
+    </button>
+    <audio id="bg-music" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <section id="page-1" class="page active">
+        <div class="content animate-fade">
+            <i class="fas fa-crown neon-icon-pink"></i>
+            <h1 class="main-title neon-pink">Happy Birthday</h1>
+            <h2 class="name-title neon-blue">May Thazin</h2>
+            <p class="sub-title"><i class="fas fa-heart"></i> My Dearest Ma <i class="fas fa-heart"></i></p>
+            <p class="quote-text">You are the most beautiful part of my life.<br>Thank you for being you.</p>
+            <button class="neon-btn-pink" onclick="nextPage(2)">Open My Gift <i class="fas fa-gift"></i></button>
+        </div>
+    </section>
+
+    <section id="page-2" class="page">
+        <div class="content">
+            <h2 class="section-title neon-pink"><i class="fas fa-heart"></i> Our Memories <i class="fas fa-heart"></i></h2>
+            <p class="section-sub">Every picture tells a story of us.</p>
+            
+            <div class="slider-wrapper">
+                <button class="nav-arrow left" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-container">
+                    <div class="slide-card"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Memory 1"></div>
+                    <div class="slide-card active-slide"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500" alt="Memory 2"></div>
+                    <div class="slide-card"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500" alt="Memory 3"></div>
+                </div>
+                <button class="nav-arrow right" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <p class="hint-text"><i class="fas fa-camera"></i> Click on arrows to view</p>
+            <button class="neon-btn-blue small-btn" onclick="nextPage(3)">Next <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section id="page-3" class="page">
+        <div class="content">
+            <h2 class="section-title neon-pink">A Letter For You <i class="fas fa-envelope-open-text"></i></h2>
+            <div class="letter-container">
+                <p class="letter-dear">My Dearest Ma,</p>
+                <div class="letter-body">
+                    <p>Happy Birthday, my love. Today is not just your birthday — it is the day someone very special came into this world. Thank you for bringing so much happiness, warmth, and love into my life.</p>
+                    <p>Every moment with you has become a memory I treasure. Your smile gives me strength, your kindness makes every day brighter, and your presence makes life feel complete.</p>
+                    <p>On your special day, I wish you good health, endless happiness, and that every dream you have comes true. No matter where life takes us, I hope we continue creating beautiful memories together.</p>
+                </div>
+                <p class="letter-footer">Thank you for being you.<br>Happy Birthday, Ma.<br>With all my love, forever. ❤️</p>
+            </div>
+            <button class="neon-btn-pink small-btn" onclick="nextPage(4)">Next <i class="fas fa-heart"></i></button>
+        </div>
+    </section>
+
+    <section id="page-4" class="page">
+        <div class="content">
+            <h2 class="section-title neon-blue">Birthday Wishes <i class="fas fa-birthday-cake"></i></h2>
+            
+            <div class="wishes-grid">
+                <div class="cake-box">
+                    <div class="neon-cake">🎂</div>
+                </div>
+                <div class="wishes-box">
+                    <h3>Wishing You</h3>
+                    <ul>
+                        <li><i class="fas fa-heart"></i> Good health</li>
+                        <li><i class="fas fa-heart"></i> Endless happiness</li>
+                        <li><i class="fas fa-heart"></i> Success in everything</li>
+                        <li><i class="fas fa-heart"></i> All your dreams come true</li>
+                        <li><i class="fas fa-heart"></i> A life full of love & laughter</li>
+                        <li><i class="fas fa-heart"></i> And always stay as amazing as you are</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="countdown-box">
+                <h4>YOUR SPECIAL DAY</h4>
+                <div class="timer-display">
+                    <div class="time-segment"><span id="days">00</span><p>Days</p></div>
+                    <div class="time-segment"><span id="hours">00</span><p>Hours</p></div>
+                    <div class="time-segment"><span id="minutes">00</span><p>Mins</p></div>
+                    <div class="time-segment"><span id="seconds">00</span><p>Secs</p></div>
+                </div>
+                <p class="birth-date">💖 06 July 1998 💖</p>
+            </div>
+
+            <button class="neon-btn-blue small-btn" onclick="nextPage(5)">Next ✨</button>
+        </div>
+    </section>
+
+    <section id="page-5" class="page">
+        <div class="content">
+            <h1 class="main-title neon-pink">Happy Birthday, Ma 💖</h1>
+            <div class="couple-silhouette">
+                <i class="fas fa-heart giant-heart"></i>
+            </div>
+            <h2 class="love-title neon-blue">I Love You</h2>
+            <p class="forever-text">Today, Tomorrow, and Always.<br><span>Forever & Always ♾️</span></p>
+            <button class="neon-btn-pink" onclick="nextPage(1)">Replay Our Story <i class="fas fa-redo"></i></button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
